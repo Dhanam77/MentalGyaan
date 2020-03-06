@@ -30,7 +30,7 @@ public class SliderAdapter extends PagerAdapter {
 
     public String[] slideHeadings ={
             "Get Confident More Than Ever",
-            "Take the Benefit of CBT Techniques",
+            "Get Benefits of CBT Techniques",
             "Get Positive Quotes Everyday"
     };
 

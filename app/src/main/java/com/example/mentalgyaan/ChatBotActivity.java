@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -137,8 +138,8 @@ public class ChatBotActivity extends AppCompatActivity implements AIListener {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 ImageView fab_img = (ImageView) findViewById(R.id.icon_only);
-                Bitmap img = BitmapFactory.decodeResource(getResources(), R.drawable.ic_account_circle);
-                Bitmap img1 = BitmapFactory.decodeResource(getResources(), R.drawable.ic_account_circle);
+            //    Bitmap img = BitmapFactory.decodeResource(getResources(), R.drawable.ic_account_circle);
+              //  Bitmap img1 = BitmapFactory.decodeResource(getResources(), R.drawable.ic_account_circle);
 
 
                 if (s.toString().trim().length() != 0 && flagFab) {
@@ -292,6 +293,12 @@ public class ChatBotActivity extends AppCompatActivity implements AIListener {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Gyaani");
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(ChatBotActivity.this, MainActivity.class));
     }
 }
 

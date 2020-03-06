@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,6 +35,7 @@ public class TherapyFragment extends Fragment {
     private FirebaseUser currentUser;
     private ArrayList<Therapies> therapiesArrayList = new ArrayList<>();
     private RecyclerView therapyRecycler;
+    private ProgressBar loadingBar;
 
 
 
@@ -71,6 +73,8 @@ public class TherapyFragment extends Fragment {
                 }
                 TherapyAdapter adapter = new TherapyAdapter(getContext(), therapiesArrayList);
                 therapyRecycler.setAdapter(adapter);
+                loadingBar.setVisibility(View.INVISIBLE);
+
             }
 
             @Override
@@ -88,6 +92,7 @@ public class TherapyFragment extends Fragment {
         therapyRecycler = (RecyclerView)mView.findViewById(R.id.therapy_sesions);
         Ref = FirebaseDatabase.getInstance().getReference();
 
+        loadingBar = (ProgressBar)mView.findViewById(R.id.load_therapies);
     }
 
 

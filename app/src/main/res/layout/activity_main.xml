@@ -19,6 +19,12 @@
         android:layout_marginBottom="55dp"
         app:layout_constraintBottom_toTopOf="@+id/bot_nav" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_above="@id/bot_nav"/>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bot_nav"

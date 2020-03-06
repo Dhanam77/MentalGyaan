@@ -4,12 +4,22 @@
 
     <item
         android:title="Therapy"
-        android:id="@+id/bot_therapy"/>
+        android:id="@+id/bot_therapy"
+        android:icon="@drawable/ic_tag_faces_black_24dp"/>
+
+    <item
+        android:title="Quotes"
+        android:id="@+id/bot_quotes"
+        android:icon="@drawable/ic_format_quote_black_24dp"/>
+
     <item
         android:title="ChatBot"
-        android:id="@+id/bot_chatbot"/>
+        android:id="@+id/bot_chatbot"
+        android:icon="@drawable/ic_tag_faces_black_24dp"/>
     <item
         android:title="Discover"
-        android:id="@+id/bot_discover"/>
+        android:id="@+id/bot_discover"
+        android:icon="@drawable/ic_tag_faces_black_24dp"/>
+
 
 </menu>

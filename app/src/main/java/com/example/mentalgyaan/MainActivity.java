@@ -39,23 +39,32 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            Fragment selectedFragment = new TherapyFragment();
+            Fragment selectedFragment = null;
 
             switch (menuItem.getItemId()) {
 
+                case R.id.bot_chatbot: {
+                    startActivity(new Intent(MainActivity.this, ChatBotActivity.class));
+                    break;
+                }
 
                 case R.id.bot_therapy: {
                     selectedFragment = new TherapyFragment();
                     break;
                 }
 
-                case R.id.bot_chatbot: {
+                case R.id.bot_quotes: {
+                    selectedFragment = new QuotesFragment();
+                    break;
+                }
+
+
+                case R.id.bot_discover: {
+                    selectedFragment = new DiscoverFragment();
 
                     break;
                 }
-                case R.id.bot_discover: {
-                    break;
-                }
+
 
 
 
@@ -89,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finishAffinity();
     }
 
 

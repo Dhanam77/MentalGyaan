@@ -24,10 +24,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/main_bar"
+            android:layout_marginBottom="60dp"
             android:background="@drawable/chatbot_wallpaper"
             android:clipToPadding="false"
             android:paddingTop="10dp"
-            android:paddingBottom="57dp" />
+             />
 
 
         <ProgressBar
