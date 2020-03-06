@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:title="Therapy"
+        android:id="@+id/bot_therapy"/>
+    <item
+        android:title="ChatBot"
+        android:id="@+id/bot_chatbot"/>
+    <item
+        android:title="Discover"
+        android:id="@+id/bot_discover"/>
+
+</menu>
