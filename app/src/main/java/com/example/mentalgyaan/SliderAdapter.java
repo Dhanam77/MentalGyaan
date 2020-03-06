@@ -22,16 +22,16 @@ public class SliderAdapter extends PagerAdapter {
 
     public int[] slideImages = {
 
-            R.drawable.common_google_signin_btn_icon_dark,
-            R.drawable.common_google_signin_btn_icon_dark,
-            R.drawable.common_google_signin_btn_icon_dark
+            R.drawable.is1,
+            R.drawable.is2,
+            R.drawable.is3
 
     };
 
     public String[] slideHeadings ={
-            "Deep Learning",
-            "Augmented Reality",
-            "Future Technology"
+            "Get Confident More Than Ever",
+            "Take the Benefit of CBT Techniques",
+            "Get Positive Quotes Everyday"
     };
 
 

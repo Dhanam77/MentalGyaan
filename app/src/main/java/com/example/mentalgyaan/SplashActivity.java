@@ -11,7 +11,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static final int SPLASH_TIMEOUT = 1000;
+    private static final int SPLASH_TIMEOUT = 3000;
     private CircleImageView splashLogo;
     private TextView splashText;
 
@@ -34,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void Initialize() {
         splashLogo = (CircleImageView) findViewById(R.id.splash_logo);
-        splashText = (TextView) findViewById(R.id.splash_text);
+     //   splashText = (TextView) findViewById(R.id.splash_text);
     }
 
 
