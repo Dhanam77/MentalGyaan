@@ -102,14 +102,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Menu menu = navigationView.getMenu();
 
 
-        switch (menuItem.getItemId())
-        {
+        switch (menuItem.getItemId()) {
             case R.id.side_help: {
 
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
-                Intent intent = new Intent(MainActivity.this, ProductsActivity.class);
+                Intent intent = new Intent(MainActivity.this, HelpActivity.class);
                 startActivity(intent);
                 break;
 
@@ -119,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.side_quiz: {
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
-                Intent intent = new Intent(MainActivity.this, AdsActivity.class);
+                Intent intent = new Intent(MainActivity.this, QuizActivity.class);
 
                 startActivity(intent);
                 break;
@@ -127,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             return true;
-
+        }
 }
 
     //SET DATA IN NAVHEADER
@@ -164,9 +163,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onBackPressed();
     }
 
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
-    }
 }
