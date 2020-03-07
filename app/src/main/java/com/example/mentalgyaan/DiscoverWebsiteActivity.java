@@ -61,10 +61,11 @@ public class DiscoverWebsiteActivity extends AppCompatActivity {
                     if(dataSnapshot1.child("topicName").getValue().toString().equals(name));
                     {
                         URL = dataSnapshot1.child("URL").getValue().toString();
-                        mWebView.loadUrl(URL);
                     }
 
                 }
+                mWebView.loadUrl(URL);
+
             }
 
             @Override
@@ -74,11 +75,6 @@ public class DiscoverWebsiteActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-    }
 
     private void Initialize() {
 
@@ -97,10 +93,9 @@ public class DiscoverWebsiteActivity extends AppCompatActivity {
     }
 
     private void SetupTOolbar() {
-        mToolbar = (Toolbar) findViewById(R.id.company_bar);
+        mToolbar = (Toolbar) findViewById(R.id.discover_bar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(name);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
     }
 }

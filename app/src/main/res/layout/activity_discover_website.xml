@@ -8,7 +8,7 @@
     tools:context=".DiscoverWebsiteActivity">
 
     <include
-        android:id="@+id/company_bar"
+        android:id="@+id/discover_bar"
         layout="@layout/app_bar"/>
 
     <WebView

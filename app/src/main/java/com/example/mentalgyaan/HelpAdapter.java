@@ -101,7 +101,7 @@ public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ViewHolder> {
         holder.helpLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, HelpWebsiteActivity.class));
+                mContext.startActivity(new Intent(mContext, HelpWebsiteActivity.class).putExtra("name", items.getName()));
             }
         });
 
