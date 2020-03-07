@@ -3,23 +3,30 @@ package com.example.mentalgyaan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar mToolbar;
     private BottomNavigationView bottomNavigationView;
-
-
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-
-
-
             }
 
 
@@ -90,6 +94,55 @@ public class MainActivity extends AppCompatActivity {
 
 
     };
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        Menu menu = navigationView.getMenu();
+
+
+        switch (menuItem.getItemId())
+        {
+            case R.id.side_help: {
+
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                Intent intent = new Intent(MainActivity.this, ProductsActivity.class);
+                startActivity(intent);
+                break;
+
+
+            }
+
+            case R.id.side_quiz: {
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                Intent intent = new Intent(MainActivity.this, AdsActivity.class);
+
+                startActivity(intent);
+                break;
+            }
+
+
+            return true;
+
+}
+
+    //SET DATA IN NAVHEADER
+    private void SetNavigationView() {
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+        final View header = navigationView.getHeaderView(0);
+
+
+    }
+
+
     private void InitializeFields() {
 
         SetupToolbar();
@@ -112,4 +165,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        return false;
+    }
 }

@@ -84,7 +84,7 @@ public class DiscoverWebsiteActivity extends AppCompatActivity {
 
         name = getIntent().getStringExtra("name");
         URL = getIntent().getStringExtra("URL");
-        Log.e("url","" + name);
+        Log.e("url","" + URL);
         SetupTOolbar();
 
 
@@ -99,7 +99,7 @@ public class DiscoverWebsiteActivity extends AppCompatActivity {
     private void SetupTOolbar() {
         mToolbar = (Toolbar) findViewById(R.id.company_bar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle(name);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
