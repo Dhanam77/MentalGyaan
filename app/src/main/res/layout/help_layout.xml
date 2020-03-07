@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/therapy_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    android:elevation="10dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="10dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <ImageView
+                android:id="@+id/therapy_image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:src="@android:color/holo_blue_bright" />
+
+
+            <TextView
+                android:id="@+id/therapy_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Vanorela Foundation"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/therapy_image" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="60dp"
+                android:text="Location:"
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/therapy_image" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="65dp"
+                android:background="@android:color/white" />
+
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

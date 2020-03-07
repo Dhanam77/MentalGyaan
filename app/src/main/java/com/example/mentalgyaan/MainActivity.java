@@ -1,6 +1,7 @@
 package com.example.mentalgyaan;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -34,6 +35,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         InitializeFields();
+
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        androidx.appcompat.app.ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                MainActivity.this, drawerLayout, mToolbar, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        SetNavigationView();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TherapyFragment()).commit();
 
@@ -125,9 +135,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
 
-            return true;
         }
-}
+        return true;
+    }
+
 
     //SET DATA IN NAVHEADER
     private void SetNavigationView() {
@@ -138,7 +149,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         final View header = navigationView.getHeaderView(0);
 
-
+        TextView nameText = (TextView) header.findViewById(R.id.sidenav_header_name);
+        nameText.setText("Dhanam Parekh");
     }
 
 
