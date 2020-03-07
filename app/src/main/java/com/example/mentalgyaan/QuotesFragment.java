@@ -1,9 +1,11 @@
 package com.example.mentalgyaan;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -35,6 +37,7 @@ public class QuotesFragment extends Fragment {
     private TextView quoteText;
     private String image, name;
     private ImageView quoteImage;
+    private CardView quoteView, actView;
 
     private ProgressBar loadingBar;
 
@@ -57,31 +60,11 @@ public class QuotesFragment extends Fragment {
 
         Log.e("date", " " + dateData);
 
-        Ref.child("Quotes").child(dateData).addValueEventListener(new ValueEventListener() {
+        quoteView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    image = dataSnapshot.child("Image").getValue().toString();
-                    name = dataSnapshot.child("Text").getValue().toString();
-
-
-
-
-
-
-                }
-
-
-
-
-
-
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), QuotesActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -92,10 +75,10 @@ public class QuotesFragment extends Fragment {
     private void Init() {
         Ref = FirebaseDatabase.getInstance().getReference();
 
-      //  quoteImage = (ImageView) mView.findViewById(R.id.quote_image);
-       // quoteText = (TextView) mView.findViewById(R.id.quote_text);
-        //loadingBar = (ProgressBar)mView.findViewById(R.id.load_quotes);
 
+
+        quoteView = (CardView)mView.findViewById(R.id.quote_view);
+        actView = (CardView)mView.findViewById(R.id.act_view);
     }
 
 }

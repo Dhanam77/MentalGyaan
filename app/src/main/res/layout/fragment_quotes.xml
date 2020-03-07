@@ -11,6 +11,7 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/quote_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -47,6 +48,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/act_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp"

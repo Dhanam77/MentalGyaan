@@ -3,6 +3,7 @@ package com.example.mentalgyaan;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,8 +13,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -57,14 +63,33 @@ public class DiaryFragment extends Fragment {
         List<String> dates = new ArrayList<String>();
         dates.add(dateData);
 
-        final String text = diaryText.getText().toString();
+
+        Ref.child("Diaries").child(dateData).child("data").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String s = dataSnapshot.getValue().toString();
+                if(s != null)
+                {
+                    diaryText.setText(s);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String text = diaryText.getText().toString();
 
                 if (text != null) {
                     Ref.child("Diaries").child(dateData).child("data").setValue(text);
+                    Toast.makeText(getContext(),"Diary Updated", Toast.LENGTH_SHORT).show();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TherapyFragment()).commit();
 
                 }
             }
@@ -87,6 +112,7 @@ public class DiaryFragment extends Fragment {
         diaryText = (EditText) mView.findViewById(R.id.diary_text);
         diaryDate = (Spinner) mView.findViewById(R.id.diary_date);
         submitButton = (Button) mView.findViewById(R.id.submit_button);
+        Ref = FirebaseDatabase.getInstance().getReference();
     }
 
 }
