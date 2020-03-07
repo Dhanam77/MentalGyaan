@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChatBotActivity"></activity>
+        <activity android:name=".DiscoverWebsiteActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".ChatBotActivity" />
         <activity android:name=".SliderActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
@@ -22,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".QuestionnaireActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

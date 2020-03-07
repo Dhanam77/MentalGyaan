@@ -52,7 +52,7 @@ public class SliderActivity extends AppCompatActivity {
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SliderActivity.this, MainActivity.class));
+                startActivity(new Intent(SliderActivity.this, QuestionnaireActivity.class));
             }
         });
 

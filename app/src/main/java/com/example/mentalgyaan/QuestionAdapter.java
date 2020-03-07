@@ -4,35 +4,32 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.google.firebase.database.DatabaseReference;
 
-public class SliderAdapter extends PagerAdapter {
+
+public class QuestionAdapter extends PagerAdapter {
 
     Context context;
     LayoutInflater layoutInflater;
-
-
-    public SliderAdapter(Context context){
+    EditText ans;
+    private DatabaseReference Ref;
+    public QuestionAdapter(Context context){
         this.context=context;
     }
 
-    public int[] slideImages = {
 
-            R.drawable.is1,
-            R.drawable.is2,
-            R.drawable.is3
-
-    };
 
     public String[] slideHeadings ={
-            "Get Confident More Than Ever",
-            "Get Benefits of CBT Techniques",
-            "Get Positive Quotes Everyday"
+            "How often do you feel depressed?",
+            "Have you had any thoughts of suicide",
+            "Do you prefer to stay home or go out?"
     };
 
 
@@ -51,12 +48,11 @@ public class SliderAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
 
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
+        View view = layoutInflater.inflate(R.layout.question_layout, container, false);
 
-        ImageView slideImageView = (ImageView) view.findViewById(R.id.iv_image);
-        TextView slideHeading = (TextView) view.findViewById(R.id.iv_text);
+        TextView slideHeading = (TextView) view.findViewById(R.id.question_text);
 
-        slideImageView.setImageResource(slideImages[position]);
+
         slideHeading.setText(slideHeadings[position]);
 
 
@@ -69,6 +65,6 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((RelativeLayout) object);  //todo: RelativeLayout??
+        container.removeView((RelativeLayout) object);
     }
 }

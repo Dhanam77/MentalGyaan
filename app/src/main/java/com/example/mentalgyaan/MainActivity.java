@@ -39,28 +39,40 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            Fragment selectedFragment = null;
 
             switch (menuItem.getItemId()) {
+
 
                 case R.id.bot_chatbot: {
                     startActivity(new Intent(MainActivity.this, ChatBotActivity.class));
                     break;
                 }
 
+                case R.id.bot_diary: {
+                    Fragment selectedFragment = new DiaryFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                    break;
+                }
+
                 case R.id.bot_therapy: {
-                    selectedFragment = new TherapyFragment();
+                    Fragment selectedFragment = new TherapyFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+
                     break;
                 }
 
                 case R.id.bot_quotes: {
-                    selectedFragment = new QuotesFragment();
+                    Fragment selectedFragment = new QuotesFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+
                     break;
                 }
 
 
                 case R.id.bot_discover: {
-                    selectedFragment = new DiscoverFragment();
+                    Fragment selectedFragment = new DiscoverFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+
 
                     break;
                 }
@@ -70,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
 
 
             return true;

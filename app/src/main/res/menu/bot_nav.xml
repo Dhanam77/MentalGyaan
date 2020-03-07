@@ -16,6 +16,15 @@
         android:title="ChatBot"
         android:id="@+id/bot_chatbot"
         android:icon="@drawable/ic_tag_faces_black_24dp"/>
+
+
+
+    <item
+        android:title="Diary"
+        android:id="@+id/bot_diary"
+        android:icon="@drawable/ic_tag_faces_black_24dp"/>
+
+
     <item
         android:title="Discover"
         android:id="@+id/bot_discover"
