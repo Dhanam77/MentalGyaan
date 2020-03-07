@@ -18,7 +18,7 @@ public class TherapyActivity extends AppCompatActivity {
     private CircleImageView breatheimage;
     private Button startButton;
     private TextView breatheinText, breateOutText, timer;
-    private int inCount = 10;
+    private int inCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class TherapyActivity extends AppCompatActivity {
                 new CountDownTimer(10000, 1000) {
                     public void onTick(long millisec) {
                         timer.setText(String.valueOf(inCount));
-                        --inCount;
+                        inCount--;
                     }
 
                     public void onFinish() {
