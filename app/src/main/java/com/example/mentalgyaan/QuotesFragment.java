@@ -65,13 +65,8 @@ public class QuotesFragment extends Fragment {
                     name = dataSnapshot.child("Text").getValue().toString();
 
 
-                    quoteText.setText(name);
-                    Glide.with(getContext())
-                            .load(image)
-                            .into(quoteImage);
 
 
-                    loadingBar.setVisibility(View.INVISIBLE);
 
 
                 }
@@ -90,10 +85,6 @@ public class QuotesFragment extends Fragment {
             }
         });
 
-        Glide.with(getContext())
-                .load(image)
-                .into(quoteImage);
-        quoteText.setText(name);
 
         return mView;
     }
@@ -101,9 +92,9 @@ public class QuotesFragment extends Fragment {
     private void Init() {
         Ref = FirebaseDatabase.getInstance().getReference();
 
-        quoteImage = (ImageView) mView.findViewById(R.id.quote_image);
-        quoteText = (TextView) mView.findViewById(R.id.quote_text);
-        loadingBar = (ProgressBar)mView.findViewById(R.id.load_quotes);
+      //  quoteImage = (ImageView) mView.findViewById(R.id.quote_image);
+       // quoteText = (TextView) mView.findViewById(R.id.quote_text);
+        //loadingBar = (ProgressBar)mView.findViewById(R.id.load_quotes);
 
     }
 

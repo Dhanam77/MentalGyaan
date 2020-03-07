@@ -1,33 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/therapy_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".QuotesFragment">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:elevation="10dp"
+    android:layout_margin="7dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
 
-    <ProgressBar
-        android:id="@+id/load_quotes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
-
-    <ImageView
-        android:id="@+id/quote_image"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:scaleType="centerCrop"
-        android:layout_height="350dp"/>
+        android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/quote_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/quote_image"
-        android:textSize="25dp"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
 
-</RelativeLayout>
+
+            <ImageView
+                android:id="@+id/therapy_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/theroad" />
+
+            <TextView
+                android:id="@+id/therapy_text"
+                app:layout_constraintTop_toBottomOf="@id/therapy_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="15dp"
+                android:text="Quotes for the day"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/therapy_layout">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+
+            <ImageView
+                android:id="@+id/activity_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/yoga" />
+
+            <TextView
+                android:id="@+id/activity_text"
+                app:layout_constraintTop_toBottomOf="@id/therapy_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="15dp"
+                android:text="Activties to perform"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

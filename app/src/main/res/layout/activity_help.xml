@@ -6,8 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".HelpActivity">
 
+    <include
+        android:id="@+id/help_bar"
+        layout="@layout/app_bar"/>
+
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/counsellor_recycler"
+        android:id="@+id/help_recycler"
+        android:layout_below="@id/help_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

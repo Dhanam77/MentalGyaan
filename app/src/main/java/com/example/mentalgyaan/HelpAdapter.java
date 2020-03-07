@@ -1,6 +1,7 @@
 package com.example.mentalgyaan;
 
 
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -63,47 +64,44 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class TherapyAdapter extends RecyclerView.Adapter<TherapyAdapter.ViewHolder> {
+public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ViewHolder> {
 
 
     private View myView;
     private Context mContext;
-    private ArrayList<Therapies> foodItemsArrayListFull;
 
 
-    private ArrayList<Therapies> foodItemsArrayList;
+    private ArrayList<Helps> foodItemsArrayList;
 
 
-    public TherapyAdapter(Context mContext, ArrayList<Therapies> foodItemsArrayList) {
+    public HelpAdapter(Context mContext, ArrayList<Helps> foodItemsArrayList) {
         this.mContext = mContext;
         this.foodItemsArrayList = foodItemsArrayList;
     }
 
     @NonNull
     @Override
-    public TherapyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HelpAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
-        myView = LayoutInflater.from(parent.getContext()).inflate(R.layout.therapy_layout, parent, false);
-        return new TherapyAdapter.ViewHolder(myView);
+        myView = LayoutInflater.from(parent.getContext()).inflate(R.layout.help_layout, parent, false);
+        return new HelpAdapter.ViewHolder(myView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final TherapyAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final HelpAdapter.ViewHolder holder, int position) {
 
-        final Therapies items = foodItemsArrayList.get(position);
+        final Helps items = foodItemsArrayList.get(position);
         holder.name.setText(items.getName());
-        holder.text.setText(items.getText());
-
-        Glide.with(mContext)
-                .load(items.getImage())
-                .into(holder.image);
+        holder.address.setText(items.getLocation());
+        holder.contact.setText(items.getContact());
 
 
-        holder.therapyLayout.setOnClickListener(new View.OnClickListener() {
+
+        holder.helpLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, TherapyActivity.class));
+                mContext.startActivity(new Intent(mContext, HelpWebsiteActivity.class));
             }
         });
 
@@ -121,17 +119,16 @@ public class TherapyAdapter extends RecyclerView.Adapter<TherapyAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView image;
-        private TextView text, name;
-        private CardView therapyLayout;
+        private TextView address, name, contact;
+        private CardView helpLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            therapyLayout = (CardView) myView.findViewById(R.id.therapy_layout);
-            image = (ImageView) myView.findViewById(R.id.therapy_image);
-            name = (TextView) myView.findViewById(R.id.therapy_name);
-            text = (TextView) myView.findViewById(R.id.therapy_text);
+            helpLayout = (CardView) myView.findViewById(R.id.help_layout);
+            name = (TextView) myView.findViewById(R.id.name);
+            address = (TextView) myView.findViewById(R.id.address1);
+            contact = (TextView) myView.findViewById(R.id.contact1);
 
 
         }

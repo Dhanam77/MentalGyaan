@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/therapy_layout"
+    android:id="@+id/help_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="7dp"
@@ -26,11 +26,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="centerCrop"
-                android:src="@android:color/holo_blue_bright" />
+                android:src="@color/colorPrimaryDark" />
 
 
             <TextView
-                android:id="@+id/therapy_text"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
@@ -49,12 +49,67 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="60dp"
-                android:text="Location:"
+                android:text="Contact:"
                 android:textColor="@android:color/white"
-                android:textSize="21sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/therapy_image" />
 
+            <TextView
+                android:id="@+id/contact1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="60dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/therapy_image" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="100dp"
+                android:text="Address:"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/therapy_image" />
+
+
+            <TextView
+                android:id="@+id/address1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="100dp"
+                android:gravity="right"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/therapy_image" />
+
+            <TextView
+                android:id="@+id/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="200dp"
+                android:text="Details"
+                android:layout_marginRight="20dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:gravity="right"
+                android:layout_gravity="right"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/therapy_image" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"

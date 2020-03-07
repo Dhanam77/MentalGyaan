@@ -65,6 +65,7 @@ public class TherapyFragment extends Fragment {
         Ref.child("Therapies").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                therapiesArrayList.clear();
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
                 {
                     therapiesArrayList.add(new Therapies(dataSnapshot1.child("Image").getValue().toString(),

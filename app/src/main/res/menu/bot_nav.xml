@@ -5,7 +5,7 @@
     <item
         android:title="Therapy"
         android:id="@+id/bot_therapy"
-        android:icon="@drawable/ic_tag_faces_black_24dp"/>
+        android:icon="@drawable/ic_airline_seat_flat_black_24dp"/>
 
     <item
         android:title="Quotes"
@@ -22,13 +22,13 @@
     <item
         android:title="Diary"
         android:id="@+id/bot_diary"
-        android:icon="@drawable/ic_tag_faces_black_24dp"/>
+        android:icon="@drawable/ic_library_books_black_24dp"/>
 
 
     <item
         android:title="Discover"
         android:id="@+id/bot_discover"
-        android:icon="@drawable/ic_tag_faces_black_24dp"/>
+        android:icon="@drawable/ic_search_black_24dp"/>
 
 
 </menu>
