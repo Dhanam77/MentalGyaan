@@ -20,12 +20,11 @@ import com.google.firebase.database.ValueEventListener;
 public class DiscoverWebsiteActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
-    private String companyTitle;
     private WebView mWebView;
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
-    private String  URL, name;
+    private String URL, name;
     private DatabaseReference Ref;
 
     @Override
@@ -56,12 +55,19 @@ public class DiscoverWebsiteActivity extends AppCompatActivity {
         Ref.child("DiscoverItems").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
-                {
-                    if(dataSnapshot1.child("topicName").getValue().toString().equals(name));
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    if (dataSnapshot1.child("topicName").getValue().toString().equals(name)) ;
                     {
-                        URL = dataSnapshot1.child("URL").getValue().toString();
+                        if (dataSnapshot1.hasChild("URL")) {
+                            URL = dataSnapshot1.child("URL").getValue().toString();
+                            break;
+                        }
+
+                        break;
+
                     }
+
+
 
                 }
                 mWebView.loadUrl(URL);
@@ -79,8 +85,6 @@ public class DiscoverWebsiteActivity extends AppCompatActivity {
     private void Initialize() {
 
         name = getIntent().getStringExtra("name");
-        URL = getIntent().getStringExtra("URL");
-        Log.e("url","" + URL);
         SetupTOolbar();
 
 
@@ -96,6 +100,8 @@ public class DiscoverWebsiteActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.discover_bar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(name);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }
 }

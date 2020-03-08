@@ -50,15 +50,15 @@ public class QuotesActivity extends AppCompatActivity {
                     image = dataSnapshot.child("Image").getValue().toString();
                     name = dataSnapshot.child("Text").getValue().toString();
 
+                    Glide.with(QuotesActivity.this)
+                            .load(image)
+                            .into(quoteImage);
+
+                    quoteText.setText(name);
+                    loadingBar.setVisibility(View.INVISIBLE);
 
                 }
 
-                Glide.with(QuotesActivity.this)
-                        .load(image)
-                        .into(quoteImage);
-
-                quoteText.setText(name);
-                loadingBar.setVisibility(View.INVISIBLE);
 
 
             }

@@ -10,7 +10,14 @@
 
     <item
         android:id="@+id/side_help"
-        android:title="Need Help" />
+        android:title="Need Help?" />
+    <item
+        android:id="@+id/side_noti"
+        android:title="Send Notification" />
+
+    <item
+        android:id="@+id/side_face"
+        android:title="Emotion Detector" />
 
 
 

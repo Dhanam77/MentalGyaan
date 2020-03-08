@@ -21,8 +21,7 @@ public class HelpWebsiteActivity extends AppCompatActivity {
 
     private WebView mWebView;
     private Toolbar mToolbar;
-    private FirebaseAuth mAuth;
-    private FirebaseUser currentUser;
+
     private String  URL, name;
     private DatabaseReference Ref;
 

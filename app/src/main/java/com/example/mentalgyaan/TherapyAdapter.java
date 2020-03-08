@@ -103,7 +103,25 @@ public class TherapyAdapter extends RecyclerView.Adapter<TherapyAdapter.ViewHold
         holder.therapyLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, TherapyActivity.class));
+
+                if(items.getText().equalsIgnoreCase("breathing exercise"))
+                {
+                    mContext.startActivity(new Intent(mContext, TherapyActivity.class));
+
+                }
+
+                if(items.getText().equalsIgnoreCase("guided discovery"))
+                {
+                    mContext.startActivity(new Intent(mContext, QuestionnaireActivity.class));
+
+                }
+
+                if(items.getText().equalsIgnoreCase("peaceful meditation"))
+                {
+                    mContext.startActivity(new Intent(mContext, AudioActivity.class));
+
+                }
+
             }
         });
 
