@@ -3,7 +3,12 @@
     package="com.example.mentalgyaan">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="23"/>
 
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AudioActivity"></activity>
+        <activity android:name=".HeartRateAtivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".AudioActivity" />
         <activity android:name=".NoticeToCustomerActivity" />
         <activity android:name=".ActivitiesActivity" />
         <activity android:name=".QuotesActivity" />
@@ -25,7 +34,7 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".ChatBotActivity" />
         <activity android:name=".SliderActivity" />
-        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".SplashActivity" />
         <activity android:name=".QuestionnaireActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
