@@ -8,7 +8,7 @@
         android:icon="@drawable/ic_airline_seat_flat_black_24dp"/>
 
     <item
-        android:title="Quotes"
+        android:title="Moodify"
         android:id="@+id/bot_quotes"
         android:icon="@drawable/ic_format_quote_black_24dp"/>
 

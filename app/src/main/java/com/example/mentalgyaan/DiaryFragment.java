@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -37,7 +38,7 @@ public class DiaryFragment extends Fragment {
     private View mView;
     private DatabaseReference Ref;
     private EditText diaryText;
-    private Spinner diaryDate;
+    private TextView diaryDate;
     private Button submitButton;
     private String randomID;
     Random random = new Random();
@@ -60,18 +61,19 @@ public class DiaryFragment extends Fragment {
         Date date = new Date();
         final String dateData = formatter.format(date);
 
-        List<String> dates = new ArrayList<String>();
-        dates.add(dateData);
-
+       diaryDate.setText(dateData);
 
         Ref.child("Diaries").child(dateData).child("data").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String s = dataSnapshot.getValue().toString();
-                if(s != null)
-                {
-                    diaryText.setText(s);
+                if (dataSnapshot.exists()) {
+                    String s = dataSnapshot.getValue().toString();
+                    if (s != null) {
+                        diaryText.setText(s);
+                    }
+
                 }
+
             }
 
             @Override
@@ -88,7 +90,7 @@ public class DiaryFragment extends Fragment {
 
                 if (text != null) {
                     Ref.child("Diaries").child(dateData).child("data").setValue(text);
-                    Toast.makeText(getContext(),"Diary Updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Diary Updated", Toast.LENGTH_SHORT).show();
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TherapyFragment()).commit();
 
                 }
@@ -96,13 +98,7 @@ public class DiaryFragment extends Fragment {
         });
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, dates);
 
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        diaryDate.setAdapter(dataAdapter);
 
 
         return mView;
@@ -110,7 +106,7 @@ public class DiaryFragment extends Fragment {
 
     private void Init() {
         diaryText = (EditText) mView.findViewById(R.id.diary_text);
-        diaryDate = (Spinner) mView.findViewById(R.id.diary_date);
+        diaryDate = (TextView) mView.findViewById(R.id.diary_date);
         submitButton = (Button) mView.findViewById(R.id.submit_button);
         Ref = FirebaseDatabase.getInstance().getReference();
     }

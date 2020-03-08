@@ -7,7 +7,7 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
-    private static final String TAG = "mFirebaseIIDService";
+    private static final String TAG = "mFirebaseIDService";
     private static final String SUBSCRIBE_TO = "offers";
 
     @Override

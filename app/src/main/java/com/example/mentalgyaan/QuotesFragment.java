@@ -67,6 +67,14 @@ public class QuotesFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        actView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ActivitiesActivity
+                        .class);
+                startActivity(intent);
+            }
+        });
 
 
         return mView;

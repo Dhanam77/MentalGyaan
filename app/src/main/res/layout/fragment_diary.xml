@@ -6,10 +6,11 @@
     tools:context=".DiaryFragment">
 
 
-    <Spinner
+    <TextView
         android:id="@+id/diary_date"
         android:layout_width="match_parent"
         android:layout_marginTop="20dp"
+        android:gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_height="50dp"/>
@@ -34,7 +35,7 @@
                 android:background="@drawable/inputs"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="25dp"/>
 
             <Button
                 android:id="@+id/submit_button"

@@ -140,9 +140,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.side_quiz: {
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
-                Intent intent = new Intent(MainActivity.this, QuizActivity.class);
 
-                startActivity(intent);
                 break;
             }
 
