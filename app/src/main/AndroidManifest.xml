@@ -18,15 +18,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DetailsActivity" />
+        <activity android:name=".QuizActivity" />
+        <activity android:name=".DoneActivity" />
+        <activity android:name=".PlayingActivity" />
+
         <activity
             android:name=".HeartRateAtivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
         <activity android:name=".AudioActivity" />
         <activity android:name=".NoticeToCustomerActivity" />
-        <activity android:name=".ActivitiesActivity" />
+        <activity android:name=".ActivitiesActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".QuotesActivity" />
-        <activity android:name=".HelpWebsiteActivity" />
+        <activity android:name=".HelpWebsiteActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".TherapyActivity" />
         <activity android:name=".HelpActivity" />
         <activity

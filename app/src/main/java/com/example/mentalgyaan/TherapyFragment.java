@@ -36,8 +36,8 @@ public class TherapyFragment extends Fragment {
     private ArrayList<Therapies> therapiesArrayList = new ArrayList<>();
     private RecyclerView therapyRecycler;
     private ProgressBar loadingBar;
-
-
+    private int m;
+    String score;
 
     public TherapyFragment() {
         // Required empty public constructor
@@ -52,6 +52,18 @@ public class TherapyFragment extends Fragment {
 
 
         Init();
+        Ref.child("Details").child("Score").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                score = dataSnapshot.getValue().toString();
+                m=Integer.valueOf(score);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         SetupTherapies();
 
@@ -59,31 +71,77 @@ public class TherapyFragment extends Fragment {
 
     }
 
-    private void SetupTherapies() {
+    private void SetupTherapies()  {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         therapyRecycler.setLayoutManager(layoutManager);
-        Ref.child("Therapies").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                therapiesArrayList.clear();
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
-                {
-                    therapiesArrayList.add(new Therapies(dataSnapshot1.child("Image").getValue().toString(),
-                            dataSnapshot1.child("Text").getValue().toString(),
-                            dataSnapshot1.child("Name").getValue().toString()));
+
+        if (m > 60) {
+            Ref.child("Therapies").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    therapiesArrayList.clear();
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        therapiesArrayList.add(new Therapies(dataSnapshot1.child("Image").getValue().toString(),
+                                dataSnapshot1.child("Text").getValue().toString(),
+                                dataSnapshot1.child("Name").getValue().toString()));
+                    }
+                    TherapyAdapter adapter = new TherapyAdapter(getContext(), therapiesArrayList);
+                    therapyRecycler.setAdapter(adapter);
+                    loadingBar.setVisibility(View.INVISIBLE);
+
                 }
-                TherapyAdapter adapter = new TherapyAdapter(getContext(), therapiesArrayList);
-                therapyRecycler.setAdapter(adapter);
-                loadingBar.setVisibility(View.INVISIBLE);
 
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
 
-            }
+            });
+        } else if (m > 20 && m <= 60) {
+            Ref.child("Therapies2").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    therapiesArrayList.clear();
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        therapiesArrayList.add(new Therapies(dataSnapshot1.child("Image").getValue().toString(),
+                                dataSnapshot1.child("Text").getValue().toString(),
+                                dataSnapshot1.child("Name").getValue().toString()));
+                    }
+                    TherapyAdapter adapter = new TherapyAdapter(getContext(), therapiesArrayList);
+                    therapyRecycler.setAdapter(adapter);
+                    loadingBar.setVisibility(View.INVISIBLE);
 
-        });
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+
+            });
+        } else {
+            Ref.child("Therapies1").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    therapiesArrayList.clear();
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        therapiesArrayList.add(new Therapies(dataSnapshot1.child("Image").getValue().toString(),
+                                dataSnapshot1.child("Text").getValue().toString(),
+                                dataSnapshot1.child("Name").getValue().toString()));
+                    }
+                    TherapyAdapter adapter = new TherapyAdapter(getContext(), therapiesArrayList);
+                    therapyRecycler.setAdapter(adapter);
+                    loadingBar.setVisibility(View.INVISIBLE);
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+
+            });
+        }
 
 
     }

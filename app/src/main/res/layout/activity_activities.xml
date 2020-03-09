@@ -4,21 +4,19 @@
     android:id="@+id/therapy_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="7dp"
     android:elevation="10dp"
     android:orientation="vertical"
     app:cardCornerRadius="10dp">
 
     <include
-        layout="@layout/app_bar"
-        android:id="@+id/act_bar"/>
+        android:id="@+id/act_bar"
+        layout="@layout/app_bar" />
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/exercise_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="25dp">
+        android:layout_height="match_parent">
 
 
         <FrameLayout
